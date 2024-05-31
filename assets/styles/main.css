@@ -14,6 +14,12 @@
     --sky-blue: #87CEEB;
     --red: #EC6D5E;
     --light-shade-blue: #A77FF7;
+    --btn-hover: #f6fcfe;
+    --red-hover: #f4aca4;
+    --blue-hover: #ceb7fa;
+    --btn-active: #88dbf6;
+    --red-active: #e74432;
+    --blue-active: #8c57f4;
 }
 
 html,
@@ -33,8 +39,24 @@ body {
     background-color: var(--red);
 }
 
+.red:hover{
+    background-color: var(--red-hover);
+}
+
+.red:active {
+    background-color: var(--red-active);
+}
+
 .blue {
     background-color: var(--light-shade-blue);
+}
+
+.blue:hover {
+    background-color: var(--blue-hover);
+}
+
+.blue:active {
+    background-color: var(--blue-active);
 }
 
 .calculator {
@@ -76,4 +98,13 @@ button {
     border: 5px solid black;
     border-radius: 12px;
     font-size: 36px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--btn-hover);
+}
+
+button:active {
+    background-color: var(--btn-active);
 }
