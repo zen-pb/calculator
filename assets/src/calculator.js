@@ -54,8 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!(mainScreen.textContent.length > 13)) {
         mainScreen.textContent += ".";
       }
-    } else {
-      alert("You can no longer add more numbers!");
     }
   });
 
