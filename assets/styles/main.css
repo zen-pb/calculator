@@ -38,6 +38,7 @@ body {
     border: 5px solid black;
     border-radius: 25px;
     padding: 3vh 0;
+    gap: 2vh;
 }
 
 .screen {
