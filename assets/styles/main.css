@@ -14,3 +14,8 @@
     --red: #EC6D5E;
     --light-shade-blue: #A77FF7;
 }
+
+html,
+body {
+    height: 100vh;
+}
