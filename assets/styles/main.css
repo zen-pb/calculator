@@ -29,6 +29,14 @@ body {
     background-color: var(--white);
 }
 
+.red {
+    background-color: var(--red);
+}
+
+.blue {
+    background-color: var(--light-shade-blue);
+}
+
 .calculator {
     width: 450px;
     height: 650px;
