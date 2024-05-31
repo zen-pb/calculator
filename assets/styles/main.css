@@ -109,3 +109,10 @@ button:hover {
 button:active {
     background-color: var(--btn-active);
 }
+
+footer {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    padding: 1vh;
+}
