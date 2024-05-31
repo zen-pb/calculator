@@ -27,3 +27,12 @@ body {
     align-items: center;
     background-color: var(--white);
 }
+
+.calculator {
+    width: 450px;
+    height: 650px;
+    background-color: var(--sky-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
