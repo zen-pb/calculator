@@ -43,4 +43,5 @@ END
 - Built with HTML, CSS, and vanilla JS.
 
 ## Attributions
+- **icon.png**: Created by Rabit Jes from www.flaticon.com
 - **GitHub Mark:** [GitHub Logo](https://github.com/logos)
