@@ -70,6 +70,7 @@ body {
     border-radius: 25px;
     padding: 3vh 0;
     gap: 2vh;
+    margin: auto 0;
 }
 
 .screen {
