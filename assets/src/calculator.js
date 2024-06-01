@@ -62,6 +62,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function operate(operator, num1, num2) {
+  let answer;
+  num1 = Number(num1);
+  num2 = Number(num2);
+
+  switch (operator) {
+    case "+":
+      answer = add(num1, num2);
+      break;
+    case "-":
+      answer = subtract(num1, num2);
+      break;
+    case "×":
+      answer = multiply(num1, num2);
+      break;
+    case "÷":
+      if (num2 != 0) {
+        answer = divide(num1, num2);
+      } else {
+        alert("You can't divide with zero!");
+      }
+      break;
+  }
+  return answer;
+}
+
 function add(num1, num2) {
   return num1 + num2;
 }
