@@ -10,6 +10,10 @@ const decimalPointButton = document.querySelector("#decimalPointBTN");
 const equalsButton = document.querySelector("#equalsBTN");
 
 document.addEventListener("DOMContentLoaded", () => {
+  let operator, num1, num2;
+  let operatorButtonClicked = false;
+  let firstOperation = false;
+
   mainScreen.textContent = "0";
 
   numberButtons.forEach((button) => {
@@ -18,27 +22,58 @@ document.addEventListener("DOMContentLoaded", () => {
         mainScreen.textContent = "";
       }
 
-      if (!(mainScreen.textContent.length > 13)) {
+      if (firstOperation) {
+        mainScreen.textContent = "";
+        firstOperation = false;
+      }
+
+      if (
+        !(mainScreen.textContent.length > 13) &&
+        !(mainScreen.textContent === "ERR: OVERFLOW")
+      ) {
         mainScreen.textContent += button.textContent;
-      } else {
-        alert("You can no longer add more numbers!");
       }
     });
   });
 
   operatorButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      topScreen.textContent = button.textContent;
+      if (!(mainScreen.textContent === "ERR: OVERFLOW")) {
+        if (operatorButtonClicked) {
+          operator = button.textContent;
+          num2 = mainScreen.textContent;
+          mainScreen.textContent = operate(operator, num1, num2);
+          topScreen.textContent = num1 + " " + operator + " " + num2 + " =";
+
+          if (mainScreen.textContent === "ERR: OVERFLOW") {
+            topScreen.textContent = "";
+          }
+        } else {
+          operator = button.textContent;
+          num1 = mainScreen.textContent;
+          topScreen.textContent = mainScreen.textContent + button.textContent;
+          operatorButtonClicked = true;
+          firstOperation = true;
+        }
+      }
     });
   });
 
   clearButton.addEventListener("click", () => {
+    operatorButtonClicked = false;
+    firstOperation = false;
     mainScreen.textContent = "0";
     topScreen.textContent = "";
+    operator = "";
+    num1 = "";
+    num2 = "";
   });
 
   backspaceButton.addEventListener("click", () => {
-    if (mainScreen.textContent !== "0") {
+    if (
+      mainScreen.textContent !== "0" &&
+      !(mainScreen.textContent === "ERR: OVERFLOW")
+    ) {
       mainScreen.textContent = mainScreen.textContent.slice(
         0,
         mainScreen.textContent.length - 1
@@ -50,7 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   decimalPointButton.addEventListener("click", () => {
-    if (!mainScreen.textContent.includes(".")) {
+    if (
+      !mainScreen.textContent.includes(".") &&
+      !(mainScreen.textContent === "ERR: OVERFLOW")
+    ) {
       if (!(mainScreen.textContent.length > 13)) {
         mainScreen.textContent += ".";
       }
@@ -58,7 +96,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   equalsButton.addEventListener("click", () => {
-    topScreen.textContent = "";
+    if (!(mainScreen.textContent === "ERR: OVERFLOW") && !firstOperation) {
+      num2 = mainScreen.textContent;
+      mainScreen.textContent = operate(operator, num1, num2);
+      topScreen.textContent = num1 + " " + operator + " " + num2 + " =";
+      operatorButtonClicked = false;
+    }
+
+    if (mainScreen.textContent === "ERR: OVERFLOW") {
+      topScreen.textContent = "";
+    }
   });
 });
 
@@ -97,9 +144,21 @@ function subtract(num1, num2) {
 }
 
 function multiply(num1, num2) {
-  return num1 * num2;
+  let answer = num1 * num2;
+
+  if (!answer.toString().includes(".")) {
+    return answer;
+  }
+
+  return answer.toFixed(2);
 }
 
 function divide(num1, num2) {
-  return num1 / num2;
+  let answer = num1 / num2;
+
+  if (!answer.toString().includes(".")) {
+    return answer;
+  }
+
+  return answer.toFixed(12);
 }
