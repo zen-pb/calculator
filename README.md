@@ -1,5 +1,5 @@
 # Calculator
-A web-based calculator that handles simple mathematical operations. Try it here: https://zen-pb.github.io/calculator/
+A web-based calculator that handles simple mathematical operations. <a href="https://zen-pb.github.io/calculator/" target="_blank">Try it here!</a>
 
 ## Description
 Meet Calculator! This project, contributed to by countless developers from all around the world, is now being created by, you guessed it, me!
