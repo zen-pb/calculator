@@ -8,6 +8,7 @@ Meet Calculator! This project, contributed to by countless developers from all a
 - Simple Calculations: It handles addition, subtraction, multiplication, and division.
 - Buttons, buttons, buttons!: It has a clear button, a backspace button, and of course, buttons for numbers and operations.
 - Stylish Design: It features a screen that rivals the dynamic island of the iPhone, with a sky blue body that makes other competitors—I'm looking at you, Apple—shake in their boots!
+- Keyboard support: Yes, you read it right, keyboard support! Calculating can now be right at your fingertips! Cool, right?
 
 ## Problem Solving Approach
 <div align="center">
